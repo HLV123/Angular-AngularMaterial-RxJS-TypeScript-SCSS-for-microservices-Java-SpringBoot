@@ -1,0 +1,46 @@
+<section class="hero" [style.backgroundImage]="'url(assets/images/hero-banner.jpg)'"><div class="ho"><div class="hc">
+  <h1>Bảo vệ <span>Tương lai</span> của bạn ngay hôm nay</h1>
+  <p>Nền tảng bảo hiểm số hàng đầu Việt Nam — Đơn giản, minh bạch, nhanh chóng.</p>
+  <div class="ha"><a mat-flat-button color="primary" routerLink="/products" class="hb"><mat-icon>search</mat-icon>Khám phá sản phẩm</a>
+  <a mat-stroked-button routerLink="/contact" class="hb ob"><mat-icon>phone</mat-icon>Tư vấn miễn phí</a></div>
+  <div class="hs"><div class="st"><b>45,000+</b><span>Khách hàng</span></div><div class="st"><b>5,000+</b><span>Đại lý</span></div><div class="st"><b>200+</b><span>Đối tác</span></div><div class="st"><b>4.8★</b><span>Đánh giá</span></div></div>
+</div></div></section>
+
+<section class="sec bg"><div class="ctn"><h2>Sản phẩm <span>Bảo hiểm</span></h2><p class="sub">Đa dạng sản phẩm phù hợp mọi nhu cầu</p>
+<div class="cg"><a *ngFor="let c of cats" [routerLink]="['/products']" [queryParams]="{category:c.code}" class="cc">
+  <div class="ci"><img [src]="c.img" [alt]="c.name"/><div class="co"><mat-icon>{{c.icon}}</mat-icon></div></div>
+  <div class="cinf"><h3>{{c.name}}</h3><p>{{c.desc}}</p><span class="cp">Từ <b>{{c.from|vnd}}</b>/năm</span></div>
+</a></div></div></section>
+
+<section class="sec"><div class="ctn"><h2>Tại sao chọn <span>Insurance Hub</span>?</h2>
+<div class="wg"><div *ngFor="let w of why" class="wc"><div class="wi" [style.background]="w.bg"><mat-icon>{{w.icon}}</mat-icon></div><h3>{{w.title}}</h3><p>{{w.desc}}</p></div></div></div></section>
+
+<section class="sec bg"><div class="ctn"><h2>Mua bảo hiểm <span>dễ dàng</span></h2><p class="sub">4 bước đơn giản</p>
+<div class="sg"><div *ngFor="let s of steps" class="sc"><div class="sn">{{s.n}}</div><div class="si"><mat-icon>{{s.icon}}</mat-icon></div><h3>{{s.title}}</h3><p>{{s.desc}}</p></div></div></div></section>
+
+<section class="sec" *ngIf="fp().length"><div class="ctn"><h2>Sản phẩm <span>nổi bật</span></h2>
+<div class="pg"><mat-card *ngFor="let p of fp()" class="pc" appearance="outlined">
+  <img mat-card-image [src]="p.image" class="pi"/>
+  <mat-card-content><h3 class="pt">{{p.name}}</h3><p class="pd">{{p.shortDescription}}</p>
+  <div class="pm"><span class="rt">★ {{p.rating}}</span><span>{{p.reviewCount}} đánh giá</span></div>
+  <div class="pp">Từ <b>{{p.minPremium|vnd}}</b>/năm</div></mat-card-content>
+  <mat-card-actions><a mat-button color="primary" [routerLink]="['/products',p.id]">Chi tiết</a>
+  <a mat-flat-button color="primary" [routerLink]="['/quote']" [queryParams]="{productId:p.id}">Báo giá</a></mat-card-actions>
+</mat-card></div></div></section>
+
+<section class="sec agent" [style.backgroundImage]="'url(assets/images/agent-team.jpg)'"><div class="ao"><div class="ctn"><div class="ac">
+  <h2>Trở thành <span>Đại lý</span> Insurance Hub</h2><p>Hoa hồng đến 30%, đào tạo miễn phí, portal hiện đại.</p>
+  <a mat-flat-button color="accent" routerLink="/register" class="ab">Đăng ký ngay</a>
+</div></div></div></section>
+
+<section class="sec bg testi"><div class="ctn"><h2>Khách hàng <span>nói gì</span>?</h2>
+<div class="tg">
+  <div class="tc"><div class="ts">★★★★★</div><p>"Quy trình nhanh gọn, bồi thường chỉ 3 ngày."</p><b>Nguyễn Thanh Hà</b><small>KH BH Sức khỏe</small></div>
+  <div class="tc"><div class="ts">★★★★★</div><p>"Portal đại lý rất tiện, doanh số tăng 40%."</p><b>Trần Văn Minh</b><small>Đại lý Senior</small></div>
+  <div class="tc"><div class="ts">★★★★☆</div><p>"Mua BH du lịch 5 phút, hotline hỗ trợ tốt!"</p><b>Lê Thị Mai</b><small>KH BH Du lịch</small></div>
+</div></div></section>
+
+<section class="sec cta"><div class="ctn"><div class="ctab">
+  <h2>Bắt đầu bảo vệ bản thân ngay hôm nay</h2><p>Nhận báo giá miễn phí trong 3 phút.</p>
+  <div class="ctaa"><a mat-flat-button routerLink="/products" class="ctbtn">Xem sản phẩm</a><a mat-stroked-button routerLink="/contact" class="ctbtn ob">Liên hệ tư vấn</a></div>
+</div></div></section>

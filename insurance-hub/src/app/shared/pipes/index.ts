@@ -1,0 +1,10 @@
+import { Pipe, PipeTransform } from '@angular/core';
+@Pipe({ name: 'vnd', standalone: true })
+export class VndPipe implements PipeTransform {
+  transform(v: any): string { if (v == null) return ''; const n = typeof v === 'string' ? parseFloat(v) : v; if (isNaN(n)) return ''; return n.toLocaleString('vi-VN') + ' ₫'; }
+}
+@Pipe({ name: 'statusVi', standalone: true })
+export class StatusViPipe implements PipeTransform {
+  private m: Record<string,string> = { ACTIVE:'Hiệu lực',DRAFT:'Nháp',PENDING_PAYMENT:'Chờ TT',LAPSED:'Mất hiệu lực',SUSPENDED:'Tạm dừng',CANCELLED:'Đã hủy',EXPIRED:'Hết hạn',RENEWED:'Đã gia hạn',SUBMITTED:'Đã nộp',UNDER_REVIEW:'Đang xét',ADDITIONAL_INFO_REQUIRED:'Cần bổ sung',APPROVED:'Đã duyệt',PARTIALLY_APPROVED:'Duyệt 1 phần',REJECTED:'Từ chối',PAID:'Đã trả',CLOSED:'Đã đóng',SUCCESS:'Thành công',FAILED:'Thất bại',PENDING:'Chờ xử lý',HEALTH:'Sức khỏe',LIFE:'Nhân thọ',MOTOR:'Xe cơ giới',PROPERTY:'Tài sản',TRAVEL:'Du lịch',ACCIDENT:'Tai nạn',FIRST_YEAR:'Năm 1',RENEWAL:'Gia hạn',BONUS:'Thưởng',HOSPITAL:'Bệnh viện',CLINIC:'Phòng khám',GARAGE:'Gara',BANK:'Ngân hàng',TIER_1:'Hạng 1',TIER_2:'Hạng 2',TIER_3:'Hạng 3',NEWBIE:'Mới',SENIOR:'Senior',MANAGER:'Manager',DIRECTOR:'Director',EXCLUSIVE:'Độc quyền',BROKER:'Đa công ty',FINANCIAL_ADVISOR:'Tư vấn TC',CUSTOMER:'Khách hàng',AGENT:'Đại lý',SALES_STAFF:'Nhân viên BH',UNDERWRITER:'Thẩm định',CLAIMS_HANDLER:'Xử lý BT',CUSTOMER_SERVICE:'CSKH',ACCOUNTANT:'Kế toán',BRANCH_MANAGER:'QL Chi nhánh',REGIONAL_MANAGER:'QL Vùng',PRODUCT_MANAGER:'QL Sản phẩm',COMPLIANCE_OFFICER:'Tuân thủ',PARTNER:'Đối tác',ADMIN:'Quản trị',SUPER_ADMIN:'Super Admin',ANNUAL:'Năm',SEMI_ANNUAL:'6 tháng',QUARTERLY:'Quý',MONTHLY:'Tháng',OUTPATIENT:'Ngoại trú',INPATIENT:'Nội trú',SURGERY:'Phẫu thuật',VEHICLE_DAMAGE:'Thiệt hại xe',DEATH:'Tử vong',DISABILITY:'Thương tật',NEW:'Mới',CONTACTED:'Đã liên hệ',QUALIFIED:'Tiềm năng',PROPOSAL_SENT:'Đã gửi BG',WON:'Đã chốt',LOST:'Mất',AUTO_APPROVED:'Auto duyệt',APPROVED_WITH_LOADING:'Duyệt+Phụ phí',DECLINED:'Từ chối',MEDICAL_REQUIRED:'Cần khám',PENDING_REVIEW:'Chờ duyệt',HIGH:'Cao',MEDIUM:'Trung bình',LOW:'Thấp' };
+  transform(v: string): string { return this.m[v] || v; }
+}
